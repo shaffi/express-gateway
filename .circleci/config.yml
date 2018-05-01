@@ -78,7 +78,7 @@ workflows:
       - node-8: *testingFilters
       - node-9: *testingFilters
       - node-8-real-redis: *testingFilters
-      - release:
+      - release: &releaseFilters
           filters:
             tags:
               only: /v\d+(\.\d+){2}/
@@ -89,4 +89,4 @@ workflows:
             - node-8
             - node-8-real-redis
             - node-9
-      - packer: *testingFilters
+      - packer: *releaseFilters
